@@ -7,6 +7,11 @@ include: "*.view*"
 # include all the dashboards
 include: "*.dashboard"
 
+
+explore: audience_meta_data {
+  label: "audience meta data"
+}
+
 explore: ga_sessions {
   label: "GA 360 Sessions"
   extends: [ga_sessions_block]
