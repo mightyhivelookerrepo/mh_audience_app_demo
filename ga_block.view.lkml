@@ -34,6 +34,12 @@ view: ga_sessions_base {
     label: "Full Visitor ID"
   }
 
+  dimension: clientId {
+    group_label: "ID"
+    label: "Client ID"
+  }
+
+
   dimension: socialEngagementType {
     group_label: "User Information"
     description: "Not Socially Engaged"
