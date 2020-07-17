@@ -12,6 +12,8 @@ include: "*.dashboard"
  # label: "audience meta data"
 #}
 
+# explore: user_list {}
+
 explore: ga_sessions {
   label: "GA 360 Sessions"
   extends: [ga_sessions_block]
@@ -97,11 +99,13 @@ explore: ga_sessions_base {
 
   join: user_list{
     relationship: one_to_many
-   sql_on:  ${ga_sessions.clientId} = ${user_list.clientId}
-  AND ${ga_sessions.partition_date} = ${user_list.partition_date};;
-   sql_where: (((${user_list.partition_date} ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY)))
-      AND (${user_list.partition_date} ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY), INTERVAL 365 DAY)))))
-;;
+   sql_on:    ${ga_sessions.clientId} = ${user_list.clientId}
+          AND ${ga_sessions.partition_date} = ${user_list.partition_date};;
+#    sql_where:
+#   (((${user_list.partition_raw} ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY)))
+#   AND (${user_list.partition_raw} ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY), INTERVAL 365 DAY))))) ;;
+#  (((${user_list.partition_date} ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY)))
+#       AND (${user_list.partition_date} ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY), INTERVAL 365 DAY)))))
   }
 
   join: audience_meta_data{
