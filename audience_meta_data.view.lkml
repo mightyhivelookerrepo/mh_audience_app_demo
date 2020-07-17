@@ -1,6 +1,5 @@
 view: audience_meta_data {
-    sql_table_name: `ga-cross-profile-settings.jnj_poc.audience_list`
-      ;;
+    sql_table_name: `ga-cross-profile-settings.jnj_poc.audience_list` ;;
 
     dimension: account_id {
       label: "Account Id"

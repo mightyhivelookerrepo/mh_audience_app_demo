@@ -8,9 +8,9 @@ include: "*.view*"
 include: "*.dashboard"
 
 
-explore: audience_meta_data {
-  label: "audience meta data"
-}
+#explore: audience_meta_data {
+ # label: "audience meta data"
+#}
 
 explore: ga_sessions {
   label: "GA 360 Sessions"
@@ -93,6 +93,20 @@ explore: ga_sessions_base {
     view_label: "Session: Hits: product"
     sql: LEFT JOIN UNNEST(${hits.product}) as hits_product ;;
     relationship: one_to_one
+  }
+
+  join: user_list{
+    relationship: one_to_many
+   sql_on:  ${ga_sessions.clientId} = ${user_list.clientId}
+  AND ${ga_sessions.partition_date} = ${user_list.partition_date};;
+   sql_where: (((${user_list.partition_date} ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY)))
+      AND (${user_list.partition_date} ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -365 DAY), INTERVAL 365 DAY)))))
+;;
+  }
+
+  join: audience_meta_data{
+    relationship: one_to_many
+    sql_on:  ${user_list.audience_id} = ${audience_meta_data.audience_id};;
   }
 
   join: ga360_product_hierarchy {
