@@ -37,7 +37,7 @@ dimension: audience_id {
 
 dimension: audience_name {
   type: string
-  sql: ${TABLE}.property_id ;;
+  sql: ${TABLE}.audience_name ;;
 }
 
 measure: count {
