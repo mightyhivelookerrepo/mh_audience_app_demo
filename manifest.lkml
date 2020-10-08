@@ -1,5 +1,5 @@
 application: ga360_audience_selector {
-  label: "AF GA360 Audience Selector"
+  label: "GA360 Audience Builder - Demo Version"
   #when dev complete will host from a file in the instance such as commented below
   file: "audience_form.js"
   # url: "http://localhost:8080/bundle.js"
