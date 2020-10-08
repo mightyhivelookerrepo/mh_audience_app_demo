@@ -1,4 +1,4 @@
-application: ga360_audience_selector {
+application: ga360_audience_selector_demo_2020 {
   label: "GA360 Audience Builder - Demo Version"
   #when dev complete will host from a file in the instance such as commented below
   file: "audience_form.js"
