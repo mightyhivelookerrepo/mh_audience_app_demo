@@ -6,6 +6,6 @@ application: ga360_audience_selector_demo_2020 {
   #starting in 7.10 you will need to pay more attention to this "entitlements" parameter
   entitlements: {
     local_storage: yes
-    use_embeds: yes
+    allow_same_origin: yes
   }
 }
