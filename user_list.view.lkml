@@ -3,8 +3,8 @@ view: user_list {
   (
 
   SELECT *, DATE(_PARTITIONTIME) AS date FROM `ga-cross-profile-settings.jnj_poc.user_list` AS user_list
-  WHERE (((cast(_PARTITIONDATE as timestamp) ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY)))
-  AND (cast(_PARTITIONDATE as timestamp) ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY), INTERVAL 365 DAY)))))
+  WHERE (((cast(partition_date as timestamp) ) >= ((TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY)))
+  AND (cast(partition_date as timestamp) ) < ((TIMESTAMP_ADD(TIMESTAMP_ADD(TIMESTAMP_TRUNC(CURRENT_TIMESTAMP(), DAY), INTERVAL -364 DAY), INTERVAL 365 DAY)))))
   ) ;;
 
   # `ga-cross-profile-settings.jnj_poc.user_list`;;
