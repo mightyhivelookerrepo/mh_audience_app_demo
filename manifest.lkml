@@ -7,6 +7,6 @@ application: ga360_audience_selector_demo_2020 {
   entitlements: {
     local_storage: yes
     use_embeds: yes
-    external_api_urls : ["https://localhost:3000","https://us-central1-hallowed-pipe-153306.cloudfunctions.net"]
+    external_api_urls : ["http://localhost:3000","https://us-central1-hallowed-pipe-153306.cloudfunctions.net","http://localhost:8080"]
   }
 }
